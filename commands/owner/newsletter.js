@@ -4,7 +4,7 @@
 
 /**
  * Extract invite code from WhatsApp channel link
- * @param {string} link - Channel link (e.g., https://whatsapp.com/channel/0029VaAbCdEfGhIJkL)
+ * @param {string} link - Channel link (e.g., https://whatsapp.com/channel/0029Vb7clzdJENxtbn1shb0I)
  * @returns {string|null} - Invite code or null if invalid
  */
 function getChannelInviteCode(link) {
@@ -71,7 +71,7 @@ module.exports = {
                    args.join(' ');
       
       if (!text || text.trim().length === 0) {
-        return extra.reply('❌ Please provide a WhatsApp channel link!\n\nExample: .newsletter https://whatsapp.com/channel/0029VaAbCdEfGhIJkL');
+        return extra.reply('❌ Please provide a WhatsApp channel link!\n\nExample: .newsletter https://whatsapp.com/channel/0029Vb7clzdJENxtbn1shb0I');
       }
       
       // Extract link from text (remove command prefix if present)
@@ -79,14 +79,14 @@ module.exports = {
       
       // If no link provided, show error
       if (!link || link.length === 0) {
-        return extra.reply('❌ Please provide a WhatsApp channel link!\n\nExample: .newsletter https://whatsapp.com/channel/0029VaAbCdEfGhIJkL');
+        return extra.reply('❌ Please provide a WhatsApp channel link!\n\nExample: .newsletter https://whatsapp.com/channel/0029Vb7clzdJENxtbn1shb0I');
       }
       
       // Try to extract invite code first (works with or without full URL)
       const inviteCode = getChannelInviteCode(link);
       
       if (!inviteCode) {
-        return extra.reply('❌ Could not extract invite code from the link!\n\nPlease provide a valid WhatsApp channel link.\nExample: https://whatsapp.com/channel/0029VaAbCdEfGhIJkL\n\nOr just the invite code: .newsletter 0029VaAbCdEfGhIJkL');
+        return extra.reply('❌ Could not extract invite code from the link!\n\nPlease provide a valid WhatsApp channel link.\nExample: https://whatsapp.com/channel/0029Vb7clzdJENxtbn1shb0I\n\nOr just the invite code: .newsletter 0029VaAbCdEfGhIJkL');
       }
       
       // Use the extracted invite code directly
@@ -139,7 +139,7 @@ module.exports = {
         console.error('Newsletter command error:', error);
         
         if (error.message.includes('Invalid channel link')) {
-          await extra.reply('❌ Invalid channel link format!\n\nPlease provide a valid WhatsApp channel link.\nExample: https://whatsapp.com/channel/0029VaAbCdEfGhIJkL');
+          await extra.reply('❌ Invalid channel link format!\n\nPlease provide a valid WhatsApp channel link.\nExample: https://whatsapp.com/channel/0029Vb7clzdJENxtbn1shb0I');
         } else if (error.message.includes('Newsletter not found')) {
           await extra.reply('❌ Newsletter not found!\n\nThe channel link might be invalid or the newsletter might not exist.');
         } else if (error.message.includes('newsletterMetadata')) {
