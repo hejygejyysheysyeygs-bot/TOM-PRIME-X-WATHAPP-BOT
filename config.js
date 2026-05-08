@@ -4,7 +4,7 @@
 
 module.exports = {
     // Bot Owner Configuration
-    ownerNumber: ['8801892625209'], // Your number without + or spaces
+    ownerNumber: ['8801627367097'], // Your number without + or spaces
     ownerName: ['Professor Tom'], 
     
     // Bot Configuration
@@ -12,7 +12,7 @@ module.exports = {
     prefix: '.',
     sessionName: 'session',
     sessionID: process.env.SESSION_ID || '', 
-    newsletterJid: '120363161513685998@newsletter', 
+    newsletterJid: '', 
     updateZipUrl: 'https://github.com/tom-wathsapp-bot-x/TOM-PRIME-X-WATHAPP-BOT/archive/refs/heads/main.zip', 
     
     // Sticker Configuration
