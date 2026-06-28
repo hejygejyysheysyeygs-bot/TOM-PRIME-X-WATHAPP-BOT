@@ -1,3 +1,3 @@
 BOT_TOKEN = "8980393789:AAGIOs6-x5eryHWspdJGb0AtaCZX51LwGv8"
 ADMIN_ID = 8324197908
-QR_IMAGE = "https://telegra.ph/file/p/example.jpg"
+QR_IMAGE = "https://i.postimg.cc/PJdp6v53/IMG-20260628-WA0003(1).jpg"
