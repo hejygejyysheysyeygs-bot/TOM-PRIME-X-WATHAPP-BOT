@@ -34,12 +34,12 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
         [InlineKeyboardButton("✅ Payment Done", callback_data="paid")]
     ]
 
-    with open(QR_IMAGE, "rb") as photo:
-        await update.message.reply_photo(
-            photo=photo,
-            caption="📲 আগে Payment করুন তারপর মাল নিন 🤣",
-            reply_markup=InlineKeyboardMarkup(keyboard),
-        )
+    await update.message.reply_photo(
+    photo=QR_IMAGE,
+    caption="📲 আগে Payment করুন তারপর মাল নিন 🤣",
+    reply_markup=InlineKeyboardMarkup(keyboard)
+    )
+    
 
 async def paid(update: Update, context: ContextTypes.DEFAULT_TYPE):
     query = update.callback_query
