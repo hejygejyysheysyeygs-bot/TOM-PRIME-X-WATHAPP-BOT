@@ -1,21 +1,20 @@
 import os
 from threading import Thread
-from http.server import HTTPServer, BaseHTTPRequestHandler
+from flask import Flask
 
-class DummyServer(BaseHTTPRequestHandler):
-    def do_GET(self):
-        self.send_response(200)
-        self.send_header("Content-type", "text/html")
-        self.end_headers()
-        self.wfile.write(b"Bot is Running!")
+app = Flask('')
+
+@app.route('/')
+def home():
+    return "Bot is Running!"
 
 def run_server():
     port = int(os.environ.get("PORT", 8080))
-    server = HTTPServer(("0.0.0.0", port), DummyServer)
-    server.serve_forever()
+    app.run(host='0.0.0.0', port=port)
 
-# ব্যাকগ্রাউন্ডে পোর্টটি চালু রাখার জন্য Thread ব্যবহার করা হলো
+# ব্যাকগ্রাউন্ডে ফ্ল্যাস্ক সার্ভার চালু করার জন্য Thread
 Thread(target=run_server, daemon=True).start()
+
 from telegram import Update
 from telegram.ext import (
     Application,
